@@ -4,9 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\technologies;
 
-class categoria extends Model
+class Categoria extends Model
 {
     use HasFactory;
 
@@ -14,6 +13,6 @@ class categoria extends Model
 
     public function technologies()
     {
-        return $this->hasMany(technologies::class);
+        return $this->hasMany(Tecnologia::class);
     }
 }
