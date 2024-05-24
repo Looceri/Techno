@@ -29,8 +29,8 @@
     <textarea name="description" class="form-control" required>{{ old('description', $tecnologia->description ?? '') }}</textarea>
 </div>
 <div class="form-group">
-    <label for="image">Imagem (URL)</label>
-    <input type="text" name="image" class="form-control" value="{{ old('image', $tecnologia->image ?? '') }}">
+    <label for="image">Imagem</label>
+    <input type="file" name="image" class="form-control-file" required>
 </div>
 <div class="form-group">
     <label for="stock">Estoque</label>
@@ -40,4 +40,3 @@
     <label for="rating">Nota</label>
     <input type="number" step="0.01" name="rating" class="form-control" value="{{ old('rating', $tecnologia->rating ?? '') }}">
 </div>
-

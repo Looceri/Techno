@@ -2,64 +2,58 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\categoria;
 use Illuminate\Http\Request;
+use App\Models\Categoria;
 
 class CategoriaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        $categorias = Categoria::all();
+        return view('categorias.index', compact('categorias'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        return view('categorias.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'name' => 'required|string|max:255',
+        ]);
+
+        Categoria::create($data);
+
+        return redirect()->route('categorias.index')->with('success', 'Categoria criada com sucesso.');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(categoria $categoria)
+    public function show(Categoria $categoria)
     {
-        //
+        return view('categorias.show', compact('categoria'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(categoria $categoria)
+    public function edit(Categoria $categoria)
     {
-        //
+        return view('categorias.edit', compact('categoria'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, categoria $categoria)
+    public function update(Request $request, Categoria $categoria)
     {
-        //
+        $data = $request->validate([
+            'name' => 'required|string|max:255',
+        ]);
+
+        $categoria->update($data);
+
+        return redirect()->route('categorias.index')->with('success', 'Categoria atualizada com sucesso.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(categoria $categoria)
+    public function destroy(Categoria $categoria)
     {
-        //
+        $categoria->delete();
+
+        return redirect()->route('categorias.index')->with('success', 'Categoria excluída com sucesso.');
     }
 }

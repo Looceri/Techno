@@ -3,7 +3,6 @@
 @section('content')
 <div class="container">
     <h1>Tecnologias</h1>
-    <a href="{{ route('tecnologias.create') }}" class="btn btn-primary">Criar Nova Tecnologia</a>
     @if(session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>
     @endif

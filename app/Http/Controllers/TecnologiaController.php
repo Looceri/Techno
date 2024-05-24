@@ -16,7 +16,7 @@ class TecnologiaController extends Controller
     public function index()
     {
         $tecnologias = Tecnologia::all();
-        return view('tecnologias.index', compact('tecnologias'));
+        return view('index', compact('tecnologias'));
     }
 
     /**
@@ -27,7 +27,7 @@ class TecnologiaController extends Controller
     public function create()
     {
         $categorias = Categoria::all();
-        return view('tecnologias.create', compact('categorias'));
+        return view('create', compact('categorias'));
     }
 
     /**
@@ -39,20 +39,21 @@ class TecnologiaController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name' => 'equired|string|max:255',
-            'brand' => 'equired|string|max:255',
-            'model' => 'equired|string|max:255',
-            'category_id' => 'equired|exists:categories,id',
-            'price' => 'equired|numeric',
-            'description' => 'equired|string',
-            'image' => 'nullable|string',
-            'stock' => 'equired|integer',
+            'name' => 'required|string|max:255',
+            'brand' => 'required|string|max:255',
+            'model' => 'required|string|max:255',
+            'category_id' => 'required|exists:categorias,id',
+            'price' => 'required|numeric',
+            'description' => 'required|string',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'stock' => 'required|integer',
             'rating' => 'nullable|numeric',
         ]);
+        dd($request);
 
         Tecnologia::create($validated);
 
-        return redirect()->route('tecnologias.index')->with('success', 'Tecnologia criada com sucesso!');
+        return redirect()->route('index')->with('success', 'Tecnologia criada com sucesso!');
     }
 
     /**
@@ -90,14 +91,14 @@ class TecnologiaController extends Controller
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
-            'name' => 'equired|string|max:255',
-            'brand' => 'equired|string|max:255',
-            'odel' => 'equired|string|max:255',
-            'category_id' => 'equired|exists:categories,id',
-            'price' => 'equired|numeric',
-            'description' => 'equired|string',
+            'name' => 'required|string|max:255',
+            'brand' => 'required|string|max:255',
+            'odel' => 'required|string|max:255',
+            'category_id' => 'required|exists:categories,id',
+            'price' => 'required|numeric',
+            'description' => 'required|string',
             'image' => 'nullable|string',
-            'tock' => 'equired|integer',
+            'tock' => 'required|integer',
             'rating' => 'nullable|numeric',
         ]);
 
