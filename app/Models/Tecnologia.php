@@ -12,11 +12,11 @@ class Tecnologia extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name', 'brand', 'model', 'category_id', 'price',
+        'name', 'brand', 'model', 'categoria_id', 'price',
         'description', 'image', 'stock', 'rating'
     ];
 
-    public function category()
+    public function categoria()
     {
         return $this->belongsTo(Categoria::class);
     }

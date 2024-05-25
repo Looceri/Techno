@@ -12,6 +12,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// web.php
 
-Route::resource('tecnologias', TecnologiaController::class);
-Route::resource('categorias', CategoriaController::class);
+Route::middleware(['auth'])->group(function () {
+    Route::resource('tecnologias', TecnologiaController::class);
+    Route::resource('categorias', CategoriaController::class);
+});
+

@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
+
         Schema::create('tecnologias', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('brand');
             $table->string('model');
-            $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
+            $table->foreignId('categoria_id')->constrained()->cascadeOnDelete();
             $table->decimal('price', 8, 2);
             $table->text('description');
             $table->string('image')->nullable();
