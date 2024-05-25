@@ -10,18 +10,18 @@ class CategoriaController extends Controller
     public function index()
     {
         $categorias = Categoria::all();
-        return view('categorias.index', compact('categorias'));
+        return view('list_categoria', compact('categorias'));
     }
 
     public function create()
     {
-        return view('categorias.create');
+        return view('create_categoria');
     }
 
     public function store(Request $request)
     {
         $data = $request->validate([
-            'name' => 'required|string|max:255',
+            'nome' => 'required|string|max:255',
         ]);
 
         Categoria::create($data);
@@ -31,18 +31,18 @@ class CategoriaController extends Controller
 
     public function show(Categoria $categoria)
     {
-        return view('categorias.show', compact('categoria'));
+        return view('show_categoria', compact('categoria'));
     }
 
     public function edit(Categoria $categoria)
     {
-        return view('categorias.edit', compact('categoria'));
+        return view('edit_categoria', compact('categoria'));
     }
 
     public function update(Request $request, Categoria $categoria)
     {
         $data = $request->validate([
-            'name' => 'required|string|max:255',
+            'nome' => 'required|string|max:255',
         ]);
 
         $categoria->update($data);
