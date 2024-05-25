@@ -48,7 +48,6 @@ class TecnologiaController extends Controller
             'description' => 'required|string',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
             'stock' => 'required|integer',
-            'rating' => 'nullable|numeric',
         ]);
 
 
@@ -116,7 +115,6 @@ class TecnologiaController extends Controller
             'description' => 'required|string',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
             'stock' => 'required|integer',
-            'rating' => 'nullable|numeric',
         ]);
 
 

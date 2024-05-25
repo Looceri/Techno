@@ -41,8 +41,4 @@
     <input type="number" name="stock" class="form-control" value="{{ old('stock', $tecnologia->stock ?? '') }}"
         required>
 </div>
-<div class="form-group">
-    <label for="rating">Nota</label>
-    <input type="number" step="0.01" name="rating" class="form-control"
-        value="{{ old('rating', $tecnologia->rating ?? '') }}">
-</div>
+

@@ -22,7 +22,6 @@ return new class extends Migration
             $table->text('description');
             $table->string('image')->nullable();
             $table->integer('stock');
-            $table->decimal('rating', 3, 2)->nullable();
             $table->timestamps();
         });
     }
