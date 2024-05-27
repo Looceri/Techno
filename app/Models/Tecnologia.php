@@ -25,9 +25,5 @@ class Tecnologia extends Model
     {
         return $this->image? URL::to(Storage::disk('public')-> $this->image) : null;
     }
-
-    public function reviews()
-    {
-        return $this->hasMany(Review::class);
-    }
+    
 }

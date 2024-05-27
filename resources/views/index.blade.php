@@ -36,7 +36,6 @@
         <td>{{ $tecnologia->price }}</td>
         <td>{{ $tecnologia->description }}</td>
         <td>{{ $tecnologia->stock }}</td>
-        <td>{{ $tecnologia->rating }}</td>
         <td>
             <a href="{{ route('tecnologias.show', $tecnologia->id) }}" class="btn btn-info">Ver</a>
             <a href="{{ route('tecnologias.edit', $tecnologia->id) }}" class="btn btn-warning">Editar</a>
